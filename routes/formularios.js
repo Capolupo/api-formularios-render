@@ -4,6 +4,7 @@ const Formulario = require('../models/Formulario');
 
 router.post('/', async (req, res) => {
   try {
+    console.log('test access')
     const novo = new Formulario(req.body);
     await novo.save();
     res.status(201).json(novo);
