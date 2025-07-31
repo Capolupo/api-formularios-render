@@ -22,6 +22,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const formulario = await Formulario.findById(req.params.id);
+    res.json(formulario);
+  } catch (err) {
+    res.status(500).json({ erro: err.message });
+  }
+});
+
 router.put('/:id', async (req, res) => {
   try {
     const atualizado = await Formulario.findByIdAndUpdate(req.params.id, req.body, { new: true });
