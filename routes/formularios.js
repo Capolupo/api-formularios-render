@@ -4,6 +4,7 @@ const Formulario = require('../models/Formulario');
 
 router.post('/', async (req, res) => {
   try {
+    console.log('test access')
     const novo = new Formulario(req.body);
     await novo.save();
     res.status(201).json(novo);
@@ -16,6 +17,15 @@ router.get('/', async (req, res) => {
   try {
     const formularios = await Formulario.find();
     res.json(formularios);
+  } catch (err) {
+    res.status(500).json({ erro: err.message });
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const formulario = await Formulario.findById(req.params.id);
+    res.json(formulario);
   } catch (err) {
     res.status(500).json({ erro: err.message });
   }
