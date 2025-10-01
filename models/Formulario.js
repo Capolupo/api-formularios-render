@@ -11,6 +11,7 @@ const FormItemSchema = new mongoose.Schema({
   title: { type: String, required: true },
   options: [{ type: String }],
   check_boxes: [FormItemCheckBoxesSchema],
+  id: {type: String, required: true},
   value: { type: String }, // Armazenar o valor | Importante armazenar por conta de campos como date e time
 }, { _id: false });
 

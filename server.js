@@ -21,6 +21,7 @@ mongoose.connect(process.env.MONGO_URL, {
 
 // Rotas
 app.use('/api/formularios', require('./routes/formularios'));
+app.use('/api/users', require('./routes/user'));
 
 // Inicialização do servidor
 const PORT = process.env.PORT || 5000;
