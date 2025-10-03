@@ -1,8 +1,10 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+import 'dotenv/config';
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import user from './routes/user.js'
+import formularios from './routes/formularios.js'
 
 const app = express();
 app.use(cors());
@@ -20,8 +22,8 @@ mongoose.connect(process.env.MONGO_URL, {
 });
 
 // Rotas
-app.use('/api/formularios', require('./routes/formularios'));
-app.use('/api/users', require('./routes/user'));
+app.use('/api/formularios', formularios);
+app.use('/api/users', user);
 
 // Inicialização do servidor
 const PORT = process.env.PORT || 5000;

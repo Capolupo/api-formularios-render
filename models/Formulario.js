@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const FormItemCheckBoxesSchema = new mongoose.Schema({
   label: { type: String, required: true },
@@ -22,4 +22,4 @@ const FormularioSchema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Formulario', FormularioSchema);
+export default mongoose.model('Formulario', FormularioSchema);
